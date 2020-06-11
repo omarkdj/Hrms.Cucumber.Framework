@@ -1,30 +1,27 @@
+#Author: asel@syntaxtechs.com
+@sprint5 @login
 Feature: Login
 
-  @smoke
-  Scenario: valid admin login
-    Given user is navigated to HRMS
-    When user enter valid admin username and password
+  @report
+  Scenario Outline: valid admin and ess login
+    When user enter "<Username>" and "<Password>"
     And user click on login button
-    Then admin user is successfully logged in
+    Then "<FirstName>" is successfully logged in
 
-  @smoke
-  Scenario: valid ess login
-    When user enter valid ess username and password
+    Examples: 
+      | Username | Password    | FirstName |
+      | Mahady   | Mahady123!! | John      |
+      | abd77    | Syntax123!  | Abdullah  |
+
+  @regression
+  Scenario Outline: Error message validation while invalid login
+    When user enter "<Username>" and "<Password>"
     And user click on login button
-    Then ess user is successfully logged in
+    Then user see "<ErrorMessage>"
 
-  #Scenario Outline: 
-    #When user enter valid "<Username>" and "<Password>"
-    #And user click on login button
-    #Then "<FirstName>" is successfully logged in
-#
-    #Examples: 
-      #| UserName | Password     | FirstName |
-      #| Admin    | Hum@anhrm123 | Admin     |
-      #| Karim77  | Syntax123    | Banzima   |
-
-  @smoke
-  Scenario: Login with valid username and invalid password
-    When User enter valid username and invalid password
-    And user click on login button
-    Then User see Invalid Credentials text on login page
+    Examples: 
+      | UserName | Password   | ErrorMessage             |
+      | Admin    | Admin123   | Invalid credentials      |
+      | Hello    | Syntax123! | Invalid credentials      |
+      | Admin    |            | Password cannot be empty |
+      |          | Syntax123! | Username cannot be empty |

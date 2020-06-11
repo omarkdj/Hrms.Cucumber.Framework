@@ -24,6 +24,9 @@ public class PersonalDetailsPageElements {
 	@FindBy(xpath="//div[@id='profile-pic']//h1")
 	public WebElement profilePic;
 
+	@FindBy(id = "btnSave")
+	public WebElement editBtn;
+	
 	public PersonalDetailsPageElements() {
 		PageFactory.initElements(BaseClass.driver, this);
 	}

@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 					    // if set to true no actual execution will happen
 		monochrome=true,
 		strict=true,
-		tags="@smoke"
+		tags="@PersonDetails"
 		)
 
 public class TestRunner {
