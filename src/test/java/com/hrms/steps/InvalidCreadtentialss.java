@@ -1,16 +1,10 @@
 package com.hrms.steps;
 
-import java.util.List;
-import java.util.Map;
-
 import org.junit.Assert;
 
 import com.hrms.utils.CommonMethods;
 
-import cucumber.api.java.en.When;
-import io.cucumber.datatable.DataTable;
-
-
+import io.cucumber.java.en.When;
 
 public class InvalidCreadtentialss extends CommonMethods{
 

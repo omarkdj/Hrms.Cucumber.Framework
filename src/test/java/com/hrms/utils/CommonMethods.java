@@ -2,6 +2,8 @@ package com.hrms.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -248,6 +250,33 @@ public class CommonMethods extends PageInitializer {
 		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
 	}
 
+	/**
+	 * This Method will take a screenshot
+	 * 
+	 * @param filename
+	 */
+	public static byte[] takeScreenshot(String filename) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
+
+		File file = ts.getScreenshotAs(OutputType.FILE);
+		String destinationFile = Constants.SCREENSHOT_FILEPATH + filename + getTimeStemp() + ".png";
+
+		try {
+			FileUtils.copyFile(file, new File(destinationFile));
+		} catch (Exception ex) {
+			System.out.println("Cannot take screenshot!");
+		}
+
+		return picBytes;
+	}
+
+	public static String getTimeStemp() {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		return sdf.format(date.getTime());
+	}
+	
 	public static void wait(int second) {
 		try {
 			Thread.sleep(second * 1000);

@@ -22,7 +22,7 @@ Feature: Add new Employee
   Scenario: AddEmployee and create Login Credentials
     When user enters employees first name and last name
     And user clicks on create login checkbox
-    And user enters login credentials
+    #And user enters login credentials
     And user clicks save button
     Then employee is added successfully
 

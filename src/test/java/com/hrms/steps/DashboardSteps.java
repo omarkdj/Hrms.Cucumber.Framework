@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 
 import com.hrms.utils.CommonMethods;
 
-import cucumber.api.java.en.Then;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
 
 public class DashboardSteps extends CommonMethods {
 	

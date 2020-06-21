@@ -4,14 +4,10 @@ import org.junit.Assert;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
-
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
-//import io.cucumber.java.en.When;
 
 public class LoginSteps extends CommonMethods{
 	
@@ -43,13 +39,13 @@ public class LoginSteps extends CommonMethods{
 		String actual = dashboard.welcome.getText();
 		Assert.assertEquals(actual, expected, "Welcome message is not displayed or not correct ");
 		System.out.println(actual);
-		wait(3);
-		tearDown();
+		wait(1);
 	}
 
 	@When("user enter valid ess username and password")
 	public void user_enter_valid_ess_username_and_password() {
-		login.login("Elvira", "Syntax123");
+		sendText(login.username, "Gince123");
+		sendText(login.password, "SyntaxHrm123!");
 	}
 
 	@Then("ess user is successfully logged in")
@@ -58,8 +54,7 @@ public class LoginSteps extends CommonMethods{
 		String actual = dashboard.welcome.getText();
 		Assert.assertEquals(actual, expected, "Welcome message is not displayed or not correct ");
 		System.out.println(actual);
-		wait(3);
-		tearDown();
+		wait(1);
 	}
 
 	@When("User enter valid username and invalid password")
@@ -71,4 +66,5 @@ public class LoginSteps extends CommonMethods{
 	public void user_see_Invalid_Credentials_text_on_login_page() {
 	    
 	}
+	
 }

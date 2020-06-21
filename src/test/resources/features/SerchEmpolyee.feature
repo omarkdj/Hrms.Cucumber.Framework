@@ -1,17 +1,18 @@
+
 Feature: Employee Search
 
-  Scenario: Search employee by id
-    Given user is navigated to HRMS
-    And user is logged with valid admin credentials
+  Background: 
+    Given user is logged with valid admin credentials
     And user navigate to employee list page
-    When user enters valid employee id
+
+  @smoke
+  Scenario: Search employee by id
+    When user enters valid employee id "10079"
     And click on search button
     Then user see employee information is displayed
-    
-   Scenario: Search employee by name
-    Given user is navigated to HRMS 
-    And user is logged with valid admin credentials
-    And user navigate to employee list page
-    When user enters valid employee name and last name
+
+  @regression
+  Scenario: Search employee by name
+    When user enters valid employee "John" and "Smith"
     And click on search button
     Then user see employee information is displayed

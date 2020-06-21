@@ -36,11 +36,11 @@ public class AddEmployeePageElements extends CommonMethods {
 	public WebElement saveBtn;
 	
 	//--------------
-	public void creatLoginCr(String uname, String pword, String cpword) {
+	public void creatLoginCr(String uid, String pwd) {
 		checkboxLoginDetails.click();
 		sendText(username, "Josephine7");
 		sendText(password, "Sephine@Kjy123");
-		sendText(confirmPassword, "Sephine@Kjy123");
+		
 		//Select select = new Select(status);
 		//select.deselectByVisibleText("Enabled");
 		wait(3);
